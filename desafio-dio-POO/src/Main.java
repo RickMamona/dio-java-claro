@@ -1,6 +1,8 @@
 import java.time.LocalDate;
 
+import Desafio.Dominio.Bootcamp;
 import Desafio.Dominio.Curso;
+import Desafio.Dominio.Dev;
 import Desafio.Dominio.Mentoria;
 
 public class Main {
@@ -21,9 +23,42 @@ public class Main {
         mentoria.setDescricao("Mentoria sobre Java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1);
+       /*  System.out.println(curso1);
         System.out.println(curso2);
-        System.out.println(mentoria);
+        System.out.println(mentoria);*/
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Development");
+        bootcamp.setDescricao("Descricao sobre Java Development");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria); 
+
+        Dev devRick = new Dev();
+        devRick.setNome("Rick");
+        devRick.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Rick:" + devRick.getConteudosInscritos());
+        devRick.progredir();
+        devRick.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Rick:" + devRick.getConteudosInscritos());
+        System.out.println("Conteúdos Concluidos Rick:" + devRick.getConteudosConcluidos());
+        System.out.println("XP:" + devRick.calcularTotalXp());
+        
+        System.out.println("------------------------------------------------------------------------------------------------");
+        
+        Dev devBianca = new Dev();
+        devBianca.setNome("Bianca");
+        devBianca.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Bianca:" + devBianca.getConteudosInscritos());
+        devBianca.progredir();
+        devBianca.progredir();
+        devBianca.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Bianca:" + devBianca.getConteudosInscritos());
+        System.out.println("Conteúdos Concluidos Bianca:" + devBianca.getConteudosConcluidos());
+        System.out.println("XP:" + devBianca.calcularTotalXp());
+
 
     }
 }
