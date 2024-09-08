@@ -1,6 +1,7 @@
 package Desafio.Dominio;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -13,6 +14,8 @@ public class Bootcamp {
     private final LocalDate dataFinal = dataInicical.plusDays(45);
     private Set<Dev> devsInscritos = new HashSet<>();
     private Set<Conteudo> conteudos = new LinkedHashSet<>();
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+   
     public String getNome() {
         return nome;
     }
@@ -28,9 +31,16 @@ public class Bootcamp {
     public LocalDate getDataInicical() {
         return dataInicical;
     }
+    public String getDataInicialFormatted() {
+        return dataInicical.format(formatter);
+    }
     public LocalDate getDataFinal() {
         return dataFinal;
     }
+    public String getDataFinalFormatted() {
+        return dataFinal.format(formatter);
+    }
+
     public Set<Dev> getDevsInscritos() {
         return devsInscritos;
     }
@@ -42,6 +52,9 @@ public class Bootcamp {
     }
     public void setConteudos(Set<Conteudo> conteudos) {
         this.conteudos = conteudos;
+    }
+    public int getNumeroDevsInscritos() {
+        return devsInscritos.size();
     }
     @Override
     public int hashCode() {

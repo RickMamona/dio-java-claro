@@ -32,12 +32,12 @@ public class Main {
         bootcamp.setDescricao("Descricao sobre Java Development");
         bootcamp.getConteudos().add(curso1);
         bootcamp.getConteudos().add(curso2);
-        bootcamp.getConteudos().add(mentoria); 
+        bootcamp.getConteudos().add(mentoria);
 
         Dev devRick = new Dev();
         devRick.setNome("Rick");
         devRick.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Rick:" + devRick.getConteudosInscritos());
+        System.out.println("Conteúdos Inscritos Rick:" + devRick.getConteudosInscritos() + "Iniciado em: " + bootcamp.getDataInicical() + ", Data Limite para Finalizar: " + bootcamp.getDataFinalFormatted());
         devRick.progredir();
         devRick.progredir();
         System.out.println("-");
@@ -50,7 +50,7 @@ public class Main {
         Dev devBianca = new Dev();
         devBianca.setNome("Bianca");
         devBianca.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Bianca:" + devBianca.getConteudosInscritos());
+        System.out.println("Conteúdos Inscritos Bianca:" + devBianca.getConteudosInscritos() + "Iniciado em: " + bootcamp.getDataInicialFormatted() + ", Data Limite para Finalizar: " + bootcamp.getDataFinalFormatted());
         devBianca.progredir();
         devBianca.progredir();
         devBianca.progredir();
@@ -58,6 +58,9 @@ public class Main {
         System.out.println("Conteúdos Inscritos Bianca:" + devBianca.getConteudosInscritos());
         System.out.println("Conteúdos Concluidos Bianca:" + devBianca.getConteudosConcluidos());
         System.out.println("XP:" + devBianca.calcularTotalXp());
+
+        System.out.println("O total de de devs Inscritos no Bootcamp é: " + bootcamp.getNumeroDevsInscritos());
+
 
 
     }
